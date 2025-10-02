@@ -15,9 +15,10 @@ class NavigationPackage() : BaseReactPackage() {
     override fun getModule(name: String, context: ReactApplicationContext): NativeModule? {
         val reactApp = context.applicationContext as ReactApplication
         return when (name) {
-            NavigationTurboModule.NAME -> {
-                NavigationTurboModule(context, LayoutFactory(reactApp.reactHost))
+            "RNNBridgeModule" -> {
+                NavigationModule(context, LayoutFactory(reactApp.reactHost))
             }
+
             else -> {
                 null
             }
@@ -25,13 +26,13 @@ class NavigationPackage() : BaseReactPackage() {
     }
 
     override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
-        mapOf(NavigationTurboModule.NAME to ReactModuleInfo(
-            name = NavigationTurboModule.NAME,
-            className = NavigationTurboModule.NAME,
+        mapOf("RNNBridgeModule" to ReactModuleInfo(
+            name = "RNNBridgeModule",
+            className = "RNNBridgeModule",
             canOverrideExistingModule = false,
             needsEagerInit = false,
             isCxxModule = false,
-            isTurboModule = true
+            isTurboModule = false
         ))
     }
 

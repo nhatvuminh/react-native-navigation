@@ -9,7 +9,7 @@ apply plugin: "com.facebook.react"
 react {
     jsRootDir = file("../../src/")
     libraryName = "rnnavigation"
-    codegenJavaPackageName = "com.reactnativenavigation.react"
+    codegenJavaPackageName = "com.facebook.fbreact.specs"
 }
 
 
